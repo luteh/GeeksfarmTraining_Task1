@@ -212,6 +212,15 @@
                     android:paddingTop="23dp"
                     android:text="0"
                     android:textSize="18sp" />
+                <Button
+                    android:id="@+id/btn_c"
+                    android:background="@android:color/holo_blue_light"
+                    android:paddingBottom="23dp"
+                    android:paddingEnd="56dp"
+                    android:paddingStart="56dp"
+                    android:paddingTop="23dp"
+                    android:text="C"
+                    android:textSize="18sp" />
             </TableRow>
         </TableLayout>
 </LinearLayout>

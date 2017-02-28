@@ -24,7 +24,7 @@ import org.w3c.dom.Text;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     private FloatingActionButton fab;
     private TextView textView;
-    private Button clear, btn0, btn1, btn2, btn3, btn4, btn5, btn6, btn7, btn8, btn9;
+    private Button clear, btn0, btn1, btn2, btn3, btn4, btn5, btn6, btn7, btn8, btn9, btnc;
     private EditText etincome, etoutcome;
     private TextInputLayout til_income, til_outcome;
     private Vibrator vibrator;
@@ -41,6 +41,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         etoutcome = (EditText) findViewById(R.id.et_outcome);
         til_income = (TextInputLayout) findViewById(R.id.til_income);
         til_outcome = (TextInputLayout) findViewById(R.id.til_outcome);
+
         btn0 = (Button) findViewById(R.id.btn_0);
         btn1 = (Button) findViewById(R.id.btn_1);
         btn2 = (Button) findViewById(R.id.btn_2);
@@ -51,6 +52,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btn7 = (Button) findViewById(R.id.btn_7);
         btn8 = (Button) findViewById(R.id.btn_8);
         btn9 = (Button) findViewById(R.id.btn_9);
+        btnc = (Button) findViewById(R.id.btn_c);
         fab = (FloatingActionButton) findViewById(R.id.fab);
         clear = (Button) findViewById(R.id.clear);
         btn0.setOnClickListener(this);
@@ -63,8 +65,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btn7.setOnClickListener(this);
         btn8.setOnClickListener(this);
         btn9.setOnClickListener(this);
+        btnc.setOnClickListener(this);
         fab.setOnClickListener(this);
         clear.setOnClickListener(this);
+
         animShake = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.shake);
         vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
         validate();
@@ -147,93 +151,41 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.btn_0:
-
-                if (etincome.hasFocus()) {
-                    etincome.setText(etincome.getText() + "" + 0);
-                    if (etincome.getText().toString().startsWith("0")) {
-                        etincome.setText(etincome.getText().toString().replace("0", ""));
-                        Toast.makeText(this, "Enter a number other than zero in the first digit!", Toast.LENGTH_SHORT).show();
-                    }
-                } else if (etoutcome.hasFocus()) {
-                    etoutcome.setText(etoutcome.getText() + "" + 0);
-                    if (etoutcome.getText().toString().startsWith("0")) {
-                        etoutcome.setText(etoutcome.getText().toString().replace("0", ""));
-                        Toast.makeText(this, "Enter a number other than zero in the first digit!", Toast.LENGTH_SHORT).show();
-                    }
-                } else
-                    Toast.makeText(this, "Click EditText!", Toast.LENGTH_SHORT).show();
+                inputButton(0);
+                if (etincome.getText().toString().startsWith("0")) {
+                    etincome.setText(etincome.getText().toString().replace("0", ""));
+                    Toast.makeText(this, "Enter a number except zero in the first digit!", Toast.LENGTH_SHORT).show();
+                } else if (etoutcome.getText().toString().startsWith("0")) {
+                    etoutcome.setText(etoutcome.getText().toString().replace("0", ""));
+                    Toast.makeText(this, "Enter a number except zero in the first digit!", Toast.LENGTH_SHORT).show();
+                }
                 break;
             case R.id.btn_1:
-                if (etincome.hasFocus())
-                    etincome.setText(etincome.getText() + "" + 1);
-                else if (etoutcome.hasFocus())
-                    etoutcome.setText(etoutcome.getText() + "" + 1);
-                else
-                    Toast.makeText(this, "Click EditText!", Toast.LENGTH_SHORT).show();
+                inputButton(1);
                 break;
             case R.id.btn_2:
-                if (etincome.hasFocus())
-                    etincome.setText(etincome.getText() + "" + 2);
-                else if (etoutcome.hasFocus())
-                    etoutcome.setText(etoutcome.getText() + "" + 2);
-                else
-                    Toast.makeText(this, "Click EditText!", Toast.LENGTH_SHORT).show();
+                inputButton(2);
                 break;
             case R.id.btn_3:
-                if (etincome.hasFocus())
-                    etincome.setText(etincome.getText() + "" + 3);
-                else if (etoutcome.hasFocus())
-                    etoutcome.setText(etoutcome.getText() + "" + 3);
-                else
-                    Toast.makeText(this, "Click EditText!", Toast.LENGTH_SHORT).show();
+                inputButton(3);
                 break;
             case R.id.btn_4:
-                if (etincome.hasFocus())
-                    etincome.setText(etincome.getText() + "" + 4);
-                else if (etoutcome.hasFocus())
-                    etoutcome.setText(etoutcome.getText() + "" + 4);
-                else
-                    Toast.makeText(this, "Click EditText!", Toast.LENGTH_SHORT).show();
+                inputButton(4);
                 break;
             case R.id.btn_5:
-                if (etincome.hasFocus())
-                    etincome.setText(etincome.getText() + "" + 5);
-                else if (etoutcome.hasFocus())
-                    etoutcome.setText(etoutcome.getText() + "" + 5);
-                else
-                    Toast.makeText(this, "Click EditText!", Toast.LENGTH_SHORT).show();
+                inputButton(5);
                 break;
             case R.id.btn_6:
-                if (etincome.hasFocus())
-                    etincome.setText(etincome.getText() + "" + 6);
-                else if (etoutcome.hasFocus())
-                    etoutcome.setText(etoutcome.getText() + "" + 6);
-                else
-                    Toast.makeText(this, "Click EditText!", Toast.LENGTH_SHORT).show();
+                inputButton(6);
                 break;
             case R.id.btn_7:
-                if (etincome.hasFocus())
-                    etincome.setText(etincome.getText() + "" + 7);
-                else if (etoutcome.hasFocus())
-                    etoutcome.setText(etoutcome.getText() + "" + 7);
-                else
-                    Toast.makeText(this, "Click EditText!", Toast.LENGTH_SHORT).show();
+                inputButton(7);
                 break;
             case R.id.btn_8:
-                if (etincome.hasFocus())
-                    etincome.setText(etincome.getText() + "" + 8);
-                else if (etoutcome.hasFocus())
-                    etoutcome.setText(etoutcome.getText() + "" + 8);
-                else
-                    Toast.makeText(this, "Click EditText!", Toast.LENGTH_SHORT).show();
+                inputButton(8);
                 break;
             case R.id.btn_9:
-                if (etincome.hasFocus())
-                    etincome.setText(etincome.getText() + "" + 9);
-                else if (etoutcome.hasFocus())
-                    etoutcome.setText(etoutcome.getText() + "" + 9);
-                else
-                    Toast.makeText(this, "Click EditText!", Toast.LENGTH_SHORT).show();
+                inputButton(9);
                 break;
             case R.id.fab:
                 String income = etincome.getText().toString();
@@ -252,6 +204,30 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 etoutcome.setText("");
                 textView.setText("Val");
                 break;
+            case R.id.btn_c:
+                int length_in = etincome.getText().length();
+                int length_ex = etoutcome.getText().length();
+                if (etincome.hasFocus()) {
+                    if (length_in > 0) {
+                        etincome.getText().delete(length_in - 1, length_in);
+                    }
+                } else if (etoutcome.hasFocus()) {
+                    if (length_ex > 0) {
+                        etoutcome.getText().delete(length_ex - 1, length_ex);
+                    }
+                } else
+                    Toast.makeText(this, "Click EditText!", Toast.LENGTH_SHORT).show();
+                break;
         }
+    }
+
+    public int inputButton(int i) {
+        if (etincome.hasFocus())
+            etincome.setText(etincome.getText() + "" + i);
+        else if (etoutcome.hasFocus())
+            etoutcome.setText(etoutcome.getText() + "" + i);
+        else
+            Toast.makeText(this, "Click EditText!", Toast.LENGTH_SHORT).show();
+        return i;
     }
 }
